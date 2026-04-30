@@ -48,17 +48,22 @@
 </head>
 <body class="h-screen flex flex-col">
 
+    <!-- Header / Barra de Progreso -->
     <header class="w-full h-2 bg-slate-200 fixed top-0 left-0 z-50">
         <div id="progress" class="h-full bg-blue-600 progress-bar" style="width: 0%"></div>
     </header>
 
+    <!-- Contenido Principal -->
     <main class="flex-grow flex items-center justify-center p-6 md:p-12 relative">
         
         <!-- Slide 1: Portada -->
         <section id="slide-0" class="slide active flex-col items-center text-center max-w-4xl">
             <span class="px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4 uppercase tracking-wider">Estrategia SRE 2026</span>
-            <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">Confiabilidad para el Modelo DIA</span></h1>
-            <p class="text-xl text-slate-600 mb-12">Monitoreo y disponibilidad para el canal que genera el 55% de las primas.</p>
+            <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+                Observabilidad<br>
+                <span class="text-blue-600 uppercase">Modelo Dia</span>
+            </h1>
+            <p class="text-xl text-slate-600 mb-12">Garantizando la continuidad de un canal que representa el 55% de las primas de la compañía.</p>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-8">
                 <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
@@ -71,7 +76,7 @@
                 </div>
                 <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
                     <div class="text-3xl font-bold text-blue-600 mb-1">70</div>
-                    <div class="text-sm text-slate-500 uppercase font-medium">Meta eNPS</div>
+                    <div class="text-sm text-slate-500 uppercase font-medium">Meta <span class="lowercase">e</span>NPS</div>
                 </div>
             </div>
         </section>
@@ -105,28 +110,118 @@
 
         <!-- Slide 3: Dolores Técnicos -->
         <section id="slide-2" class="slide flex-col max-w-5xl w-full">
-            <h2 class="text-3xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">Radiografía de Problemas Críticos</h2>
+            <h2 class="text-3xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">Principales Dolores Técnicos</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl border border-slate-200">
-                    <h3 class="font-bold text-red-600 mb-2">Viernes de Cierre</h3>
-                    <p class="text-slate-600 text-sm">254 solicitudes encoladas detectadas un viernes de cierre.</p>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-3 flex items-center gap-2 text-red-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        Procesos Manuales
+                    </h3>
+                    <p class="text-slate-600 text-sm">Regreso forzado a PDFs en Salud/Rentas ante caídas, aumentando el error operativo.</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200">
-                    <h3 class="font-bold text-red-600 mb-2">Data Factory (ADF)</h3>
-                    <p class="text-slate-600 text-sm">Fallas en Integration Runtime (IR) sin alertamiento proactivo.</p>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-3 flex items-center gap-2 text-red-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Viernes de Cierre
+                    </h3>
+                    <p class="text-slate-600 text-sm">Hasta 254 solicitudes encoladas en un solo viernes crítico.</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200">
-                    <h3 class="font-bold text-red-600 mb-2">Punto Ciego On-Premise</h3>
-                    <p class="text-slate-600 text-sm">Baja visibilidad (32-40%) en sistemas core (SAS, SGP, Emisión).</p>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-3 flex items-center gap-2 text-red-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071a9.9 9.9 0 0114.142 0M5.106 4.272l13.788 13.788"></path></svg>
+                        VPN Inestable
+                    </h3>
+                    <p class="text-slate-600 text-sm">Disponibilidad del 95% es insuficiente para la demanda del canal.</p>
                 </div>
             </div>
+            
+            <!-- 
             <div class="mt-8 bg-blue-50 p-6 rounded-2xl border border-blue-100 flex items-center gap-6">
-                <div class="bg-blue-600 text-white font-bold px-4 py-2 rounded-lg">VPN (95%)</div>
-                <p class="text-blue-800 font-medium">Insuficiente para la operación. Se requiere migración total a ExpressRoute.</p>
+                <div class="bg-blue-600 text-white font-bold px-4 py-2 rounded-lg">SOLUCIÓN</div>
+                <p class="text-blue-800 font-medium">Migración total a ExpressRoute para mayor estabilidad.</p>
+            </div> 
+            -->
+            
+        </section>
+
+        <!-- Slide 4: Punto Ciego -->
+        <section id="slide-3" class="slide flex-col max-w-5xl w-full">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">El Punto Ciego de la Operación</h2>
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                <table class="w-full text-left">
+                    <thead class="bg-slate-50 border-b border-slate-200">
+                        <tr>
+                            <th class="px-6 py-4 font-bold text-slate-700">Componente</th>
+                            <th class="px-6 py-4 font-bold text-slate-700">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr>
+                            <td class="px-6 py-4 font-semibold">Azure Data Factory (ADF)</td>
+                            <td class="px-6 py-4 text-slate-600">Caídas en reportes de gestión que frenan la cobranza.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-semibold">Integration Runtime (IR)</td>
+                            <td class="px-6 py-4 text-slate-600">Recursos "huérfanos" (Radar) caídos por 4 días sin alertas.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-semibold">Organízate</td>
+                            <td class="px-6 py-4 text-slate-600">Desactivación involuntaria de "flags" interrumpe flujos.</td>
+                        </tr>
+                        <tr class="bg-red-50">
+                            <td class="px-6 py-4 font-bold text-red-700">Sistemas On-Premise</td>
+                            <td class="px-6 py-4 text-red-700 font-medium">Solo 32-40% de visibilidad en SAS, SGP y Emisión.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
-        <!-- Slide 4: Estado Dynatrace (ACTUALIZADO) -->
+        <!-- Slide 5: Dynatrace -->
+        <section id="slide-4" class="slide flex-col max-w-5xl w-full">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">Estado de Observabilidad (Dynatrace)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">PADG (Portal Asesoría Digital)</span>
+                            <span class="text-blue-600 font-bold">90%</span>
+                        </div>
+                        <div class="h-4 bg-slate-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-blue-600" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">SDVD y PDDG</span>
+                            <span class="text-green-600 font-bold">100%</span>
+                        </div>
+                        <div class="h-4 bg-slate-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-green-500" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold text-red-500">Monitoreo Sintético (Robots)</span>
+                            <span class="text-red-500 font-bold">Pendiente</span>
+                        </div>
+                        <div class="h-4 bg-slate-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-red-400" style="width: 15%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-blue-600 rounded-3xl p-8 text-white flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold mb-4">La Brecha Crítica</h3>
+                    <p class="text-blue-100 mb-6">Contamos con una base sólida digital, pero carecemos de "robots" que golpeen las aplicaciones On-Premise para detectar caídas antes que el asesor.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg> Necesidad: Alertamiento Proactivo</li>
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg> Foco: Procesos "No Digitales"</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Disponibilidad Actual -->
         <section id="slide-3" class="slide flex-col max-w-6xl w-full">
             <h2 class="text-3xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">Disponibilidad Actual del Modelo DIA</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -159,94 +254,169 @@
                 <div class="bg-amber-500 text-white p-2 rounded-lg">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                 </div>
-                <p class="text-amber-800 text-sm"><strong>Nota:</strong> Estas métricas son promedios cloud basados en APIs. La percepción del usuario varía por componentes On-Premise no mapeados aún.</p>
+                <p class="text-amber-800 text-sm"><strong>Nota:</strong> Estas métricas son promedios cloud basados en APIs. La percepción del usuario varía por componentes On-Premise no mapeados en su totalidad.</p>
             </div>
         </section>
 
-        <!-- Slide 5: Propuesta -->
-        <section id="slide-4" class="slide flex-col max-w-5xl w-full">
-            <h2 class="text-3xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">El Modelo de Solución SRE</h2>
+        <!-- Slide 7: Propuesta SRE -->
+        <section id="slide-5" class="slide flex-col max-w-5xl w-full">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">Propuesta: De la Reacción a la Prevención</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="p-6 bg-white rounded-2xl border-2 border-blue-100 hover:border-blue-600 transition-all">
-                    <h3 class="font-bold text-xl mb-2 text-blue-700">1. SRE full para la Tribu</h3>
-                    <p class="text-slate-600">Responsable de operar lo que se construye. No más activos "huérfanos".</p>
+                <div class="p-6 bg-white rounded-2xl border-2 border-blue-100 hover:border-blue-600 transition-colors">
+                    <h3 class="font-bold text-xl mb-2 text-blue-700">1. SRE dedicado</h3>
+                    <p class="text-slate-600">Integrar 1 recurso SRE full para la tribu. Responsabilidad compartida: Construir + Operar.</p>
                 </div>
-                <div class="p-6 bg-white rounded-2xl border-2 border-blue-100 hover:border-blue-600 transition-all">
+                <div class="p-6 bg-white rounded-2xl border-2 border-blue-100 hover:border-blue-600 transition-colors">
                     <h3 class="font-bold text-xl mb-2 text-blue-700">2. Monitoreo Sintético</h3>
-                    <p class="text-slate-600">Robots probando el flujo de venta 24/7 para detectar caídas antes que el asesor.</p>
+                    <p class="text-slate-600">Implementar robots para detectar caídas de sistemas core antes que el asesor lo reporte.</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border-2 border-blue-100 hover:border-blue-600 transition-colors">
+                    <h3 class="font-bold text-xl mb-2 text-blue-700">3. Alertamiento Temprano</h3>
+                    <p class="text-slate-600">Automatizar alertas para Integration Runtime (IR) y flujos críticos de Data Factory.</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border-2 border-blue-100 hover:border-blue-600 transition-colors">
+                    <h3 class="font-bold text-xl mb-2 text-blue-700">4. Conectividad Robusta</h3>
+                    <p class="text-slate-600">Eliminar la dependencia de la VPN inestable migrando el tráfico crítico a ExpressRoute.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 6: Resultados (ACTUALIZADO) -->
-        <section id="slide-5" class="slide flex-col items-center text-center max-w-4xl">
+        <!-- Slide 8: Resultados y Roadmap -->
+        <section id="slide-5" class="slide flex-col items-center text-center max-w-5xl w-full">
             <h2 class="text-4xl font-bold text-slate-900 mb-12">Resultados y Metas 2026</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-                <div class="bg-green-50 p-8 rounded-2xl border border-green-100">
-                    <div class="text-4xl font-bold text-green-600 mb-2">>98.5%</div>
-                    <div class="text-slate-600 font-semibold uppercase text-xs">Disponibilidad Target</div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full text-left">
+                <!-- Columna Izquierda: Resultados -->
+                <div class="space-y-6">
+                    <div class="bg-green-50 p-6 rounded-2xl border border-green-100 flex items-center gap-4">
+                        <div class="text-4xl font-bold text-green-600">>98.5%</div>
+                        <div class="text-slate-600 font-semibold uppercase text-xs">Disponibilidad Target</div>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 flex items-center gap-4">
+                        <div class="text-4xl font-bold text-blue-600">70</div>
+                        <div class="text-slate-600 font-semibold uppercase text-xs">Meta Institucional <span class="lowercase">e</span>NPS</div>
+                    </div>
+                    <div class="bg-slate-100 p-6 rounded-2xl border border-slate-200 flex items-center gap-4">
+                        <div class="text-4xl font-bold text-slate-700">0</div>
+                        <div class="text-slate-600 font-semibold uppercase text-xs">Mesas de Crisis Nocturnas</div>
+                    </div>
                 </div>
-                <div class="bg-blue-50 p-8 rounded-2xl border border-blue-100">
-                    <div class="text-4xl font-bold text-blue-600 mb-2">70</div>
-                    <div class="text-slate-600 font-semibold uppercase text-xs">Meta Institucional eNPS</div>
-                </div>
-                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200">
-                    <div class="text-4xl font-bold text-slate-700 mb-2">0</div>
-                    <div class="text-slate-600 font-semibold uppercase text-xs">Mesas de Crisis Nocturnas</div>
+
+                <!-- Columna Derecha: Roadmap -->
+                <div class="bg-slate-900 text-white p-8 rounded-3xl h-full shadow-xl">
+                    <h4 class="font-bold mb-6 text-blue-400 text-xl flex items-center gap-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Roadmap Inmediato
+                    </h4>
+                    <ul class="space-y-6 opacity-90">
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold mt-1">1</div>
+                            <span class="text-slate-200">Aprobación de presupuesto para SRE Full Time.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold mt-1">2</div>
+                            <span class="text-slate-200">Despliegue de Monitoreo Sintético en SAS y Emisión.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold mt-1">3</div>
+                            <span class="text-slate-200">Integración de la métrica <span class="lowercase">e</span>NPS en dashboards SRE.</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="mt-12 text-left bg-slate-900 text-white p-8 rounded-3xl w-full">
-                <h4 class="font-bold mb-4 text-blue-400">Roadmap Inmediato:</h4>
-                <ul class="space-y-3 opacity-90">
-                    <li class="flex items-center gap-3">
-                        <div class="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                        Aprobación de presupuesto para SRE Full Time.
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <div class="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                        Despliegue de Monitoreo Sintético en SAS y Emisión.
-                    </li>
-                </ul>
+
+            <div class="mt-12">
+                <button onclick="restartPresentation()" class="px-8 py-3 bg-slate-200 text-slate-800 rounded-full font-semibold hover:bg-slate-300 transition-all">Reiniciar Presentación</button>
             </div>
         </section>
 
     </main>
 
+    <!-- Controles de Navegación -->
     <nav class="p-6 bg-white border-t border-slate-200 flex justify-between items-center z-40">
         <div class="text-sm font-medium text-slate-500">
-            Slide <span id="current-slide-num">1</span> de 6
+            Slide <span id="current-slide-num">1</span> de 8
         </div>
         <div class="flex gap-4">
-            <button id="prevBtn" onclick="prevSlide()" class="p-3 rounded-full hover:bg-slate-100 border border-slate-200">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"></path></svg>
+            <button id="prevBtn" onclick="prevSlide()" class="p-3 rounded-full hover:bg-slate-100 border border-slate-200 disabled:opacity-30 disabled:cursor-not-allowed">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
             </button>
-            <button id="nextBtn" onclick="nextSlide()" class="px-6 py-3 bg-blue-600 text-white rounded-full font-bold">
+            <button id="nextBtn" onclick="nextSlide()" class="px-6 py-3 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700 transition-all flex items-center gap-2">
                 Siguiente
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </button>
         </div>
     </nav>
 
     <script>
         let currentSlide = 0;
-        const totalSlides = 6;
+        const totalSlides = 8;
         const slides = document.querySelectorAll('.slide');
         const progress = document.getElementById('progress');
         const currentNum = document.getElementById('current-slide-num');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
 
         function updateSlide() {
             slides.forEach((s, index) => {
                 s.classList.remove('active');
                 if (index === currentSlide) s.classList.add('active');
             });
-            progress.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+
+            // Update Progress
+            const pct = ((currentSlide + 1) / totalSlides) * 100;
+            progress.style.width = `${pct}%`;
+            
+            // Update UI
             currentNum.innerText = currentSlide + 1;
+            prevBtn.disabled = currentSlide === 0;
+            
+            if (currentSlide === totalSlides - 1) {
+                nextBtn.innerText = "Finalizar";
+                nextBtn.classList.replace('bg-blue-600', 'bg-green-600');
+            } else {
+                nextBtn.innerText = "Siguiente";
+                nextBtn.classList.replace('bg-green-600', 'bg-blue-600');
+            }
         }
 
-        function nextSlide() { if (currentSlide < totalSlides - 1) { currentSlide++; updateSlide(); } }
-        function prevSlide() { if (currentSlide > 0) { currentSlide--; updateSlide(); } }
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        function restartPresentation() {
+            currentSlide = 0;
+            updateSlide();
+        }
+
+        // Teclado
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
             if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // Touch swipe support (simple)
+        let touchstartX = 0;
+        let touchendX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            if (touchendX < touchstartX - 50) nextSlide();
+            if (touchendX > touchstartX + 50) prevSlide();
         });
     </script>
 </body>
