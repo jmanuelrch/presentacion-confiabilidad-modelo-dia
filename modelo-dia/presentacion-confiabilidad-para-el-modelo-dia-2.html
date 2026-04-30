@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrategia SRE - Modelo DIA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: flex;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+
+        .module-card {
+            background: #ffffff;
+            border-left: 4px solid #22c55e;
+            transition: transform 0.2s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col">
+
+    <header class="w-full h-2 bg-slate-200 fixed top-0 left-0 z-50">
+        <div id="progress" class="h-full bg-blue-600 progress-bar" style="width: 0%"></div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center p-6 md:p-12 relative">
+        
+        <!-- Slide 1: Portada -->
+        <section id="slide-0" class="slide active flex-col items-center text-center max-w-4xl">
+            <span class="px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4 uppercase tracking-wider">Estrategia SRE 2026</span>
+            <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">Confiabilidad para el Modelo DIA</span></h1>
+            <p class="text-xl text-slate-600 mb-12">Monitoreo y disponibilidad para el canal que genera el 55% de las primas.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-8">
+                <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+                    <div class="text-3xl font-bold text-blue-600 mb-1">+1,000</div>
+                    <div class="text-sm text-slate-500 uppercase font-medium">Asesores</div>
+                </div>
+                <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+                    <div class="text-3xl font-bold text-blue-600 mb-1">55%</div>
+                    <div class="text-sm text-slate-500 uppercase font-medium">Ventas Canal</div>
+                </div>
+                <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+                    <div class="text-3xl font-bold text-blue-600 mb-1">70</div>
+                    <div class="text-sm text-slate-500 uppercase font-medium">Meta eNPS</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: El Dolor del Asesor -->
+        <section id="slide-1" class="slide flex-col max-w-5xl w-full">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">Impacto Directo en el Asesor</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-red-100 p-3 rounded-xl"><svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3z"></path><path d="M12 1v22m5-18H7m10 14H7"></path></svg></div>
+                        <div>
+                            <h3 class="font-bold text-lg">Sueldo 100% Variable</h3>
+                            <p class="text-slate-600">Cada minuto de caída impacta sus comisiones directamente.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-amber-100 p-3 rounded-xl"><svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2"></path></svg></div>
+                        <div>
+                            <h3 class="font-bold text-lg">Cartera y Cobranzas</h3>
+                            <p class="text-slate-600">Sin reportes, el asesor no puede gestionar renovaciones ni pagos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-900 rounded-3xl p-8 text-white shadow-2xl">
+                    <p class="italic text-lg mb-4">"Si no tengo información para llamar a cobrar, el ingreso del asesor se muere."</p>
+                    <p class="font-bold text-blue-400">— Jessica (Reunión SRE)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Dolores Técnicos -->
+        <section id="slide-2" class="slide flex-col max-w-5xl w-full">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">Radiografía de Problemas Críticos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                    <h3 class="font-bold text-red-600 mb-2">Viernes de Cierre</h3>
+                    <p class="text-slate-600 text-sm">254 solicitudes encoladas detectadas un viernes de cierre.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                    <h3 class="font-bold text-red-600 mb-2">Data Factory (ADF)</h3>
+                    <p class="text-slate-600 text-sm">Fallas en Integration Runtime (IR) sin alertamiento proactivo.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                    <h3 class="font-bold text-red-600 mb-2">Punto Ciego On-Premise</h3>
+                    <p class="text-slate-600 text-sm">Baja visibilidad (32-40%) en sistemas core (SAS, SGP, Emisión).</p>
+                </div>
+            </div>
+            <div class="mt-8 bg-blue-50 p-6 rounded-2xl border border-blue-100 flex items-center gap-6">
+                <div class="bg-blue-600 text-white font-bold px-4 py-2 rounded-lg">VPN (95%)</div>
+                <p class="text-blue-800 font-medium">Insuficiente para la operación. Se requiere migración total a ExpressRoute.</p>
+            </div>
+        </section>
+
+        <!-- Slide 4: Estado Dynatrace (ACTUALIZADO) -->
+        <section id="slide-3" class="slide flex-col max-w-6xl w-full">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">Disponibilidad Actual del Modelo DIA</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="module-card p-4 rounded-xl shadow-sm">
+                    <div class="text-xs text-slate-500 font-bold uppercase mb-1">PADG - Biometría</div>
+                    <div class="text-2xl font-bold text-green-600">99.76%</div>
+                </div>
+                <div class="module-card p-4 rounded-xl shadow-sm">
+                    <div class="text-xs text-slate-500 font-bold uppercase mb-1">PADG - ADN Vida</div>
+                    <div class="text-2xl font-bold text-green-600">99.56%</div>
+                </div>
+                <div class="module-card p-4 rounded-xl shadow-sm">
+                    <div class="text-xs text-slate-500 font-bold uppercase mb-1">PADG - Rentas</div>
+                    <div class="text-2xl font-bold text-green-600">99.50%</div>
+                </div>
+                <div class="module-card p-4 rounded-xl shadow-sm">
+                    <div class="text-xs text-slate-500 font-bold uppercase mb-1">PADG - Web Agenda</div>
+                    <div class="text-2xl font-bold text-green-600">99.08%</div>
+                </div>
+                <div class="module-card p-4 rounded-xl shadow-sm border-l-green-500">
+                    <div class="text-xs text-slate-500 font-bold uppercase mb-1">SDVD - Solicitud Vida</div>
+                    <div class="text-2xl font-bold text-green-600">98.74%</div>
+                </div>
+                <div class="module-card p-4 rounded-xl shadow-sm border-l-green-500">
+                    <div class="text-xs text-slate-500 font-bold uppercase mb-1">PDDG - Seguros Vinculados</div>
+                    <div class="text-2xl font-bold text-green-600">99.66%</div>
+                </div>
+            </div>
+            <div class="mt-8 p-4 bg-amber-50 border border-amber-200 rounded-xl flex items-center gap-4">
+                <div class="bg-amber-500 text-white p-2 rounded-lg">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                </div>
+                <p class="text-amber-800 text-sm"><strong>Nota:</strong> Estas métricas son promedios cloud basados en APIs. La percepción del usuario varía por componentes On-Premise no mapeados aún.</p>
+            </div>
+        </section>
+
+        <!-- Slide 5: Propuesta -->
+        <section id="slide-4" class="slide flex-col max-w-5xl w-full">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">El Modelo de Solución SRE</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-6 bg-white rounded-2xl border-2 border-blue-100 hover:border-blue-600 transition-all">
+                    <h3 class="font-bold text-xl mb-2 text-blue-700">1. SRE full para la Tribu</h3>
+                    <p class="text-slate-600">Responsable de operar lo que se construye. No más activos "huérfanos".</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border-2 border-blue-100 hover:border-blue-600 transition-all">
+                    <h3 class="font-bold text-xl mb-2 text-blue-700">2. Monitoreo Sintético</h3>
+                    <p class="text-slate-600">Robots probando el flujo de venta 24/7 para detectar caídas antes que el asesor.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Resultados (ACTUALIZADO) -->
+        <section id="slide-5" class="slide flex-col items-center text-center max-w-4xl">
+            <h2 class="text-4xl font-bold text-slate-900 mb-12">Resultados y Metas 2026</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+                <div class="bg-green-50 p-8 rounded-2xl border border-green-100">
+                    <div class="text-4xl font-bold text-green-600 mb-2">>98.5%</div>
+                    <div class="text-slate-600 font-semibold uppercase text-xs">Disponibilidad Target</div>
+                </div>
+                <div class="bg-blue-50 p-8 rounded-2xl border border-blue-100">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">70</div>
+                    <div class="text-slate-600 font-semibold uppercase text-xs">Meta Institucional eNPS</div>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200">
+                    <div class="text-4xl font-bold text-slate-700 mb-2">0</div>
+                    <div class="text-slate-600 font-semibold uppercase text-xs">Mesas de Crisis Nocturnas</div>
+                </div>
+            </div>
+            <div class="mt-12 text-left bg-slate-900 text-white p-8 rounded-3xl w-full">
+                <h4 class="font-bold mb-4 text-blue-400">Roadmap Inmediato:</h4>
+                <ul class="space-y-3 opacity-90">
+                    <li class="flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                        Aprobación de presupuesto para SRE Full Time.
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                        Despliegue de Monitoreo Sintético en SAS y Emisión.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <nav class="p-6 bg-white border-t border-slate-200 flex justify-between items-center z-40">
+        <div class="text-sm font-medium text-slate-500">
+            Slide <span id="current-slide-num">1</span> de 6
+        </div>
+        <div class="flex gap-4">
+            <button id="prevBtn" onclick="prevSlide()" class="p-3 rounded-full hover:bg-slate-100 border border-slate-200">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button id="nextBtn" onclick="nextSlide()" class="px-6 py-3 bg-blue-600 text-white rounded-full font-bold">
+                Siguiente
+            </button>
+        </div>
+    </nav>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 6;
+        const slides = document.querySelectorAll('.slide');
+        const progress = document.getElementById('progress');
+        const currentNum = document.getElementById('current-slide-num');
+
+        function updateSlide() {
+            slides.forEach((s, index) => {
+                s.classList.remove('active');
+                if (index === currentSlide) s.classList.add('active');
+            });
+            progress.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+            currentNum.innerText = currentSlide + 1;
+        }
+
+        function nextSlide() { if (currentSlide < totalSlides - 1) { currentSlide++; updateSlide(); } }
+        function prevSlide() { if (currentSlide > 0) { currentSlide--; updateSlide(); } }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+</html>
